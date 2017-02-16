@@ -3,7 +3,7 @@ import json,urllib
 
 def zidonghuifu(content):
     url='http://www.tuling123.com/openapi/api'
-    data={"key": "dfeb1cc8125943d29764a2f2f5c33739", "info": content}
+    data={"key": "your key", "info": content}
 
     data=urllib.urlencode(data)
     html=urllib.urlopen(url,data).read()
@@ -22,9 +22,6 @@ def zidonghuifu(content):
     return recontent
 
 if __name__=='__main__':
-    print('正在启动。。。。。')
-    print('问答小程序')
-    print('启动完成。。')
     while True:
         content=raw_input('问：')
         me=zidonghuifu(content)
