@@ -24,10 +24,10 @@ def beijing():
 	text=request.form.get('text')
 	if user is None or text is None:
 		comment=Comment.query.all()
-		return render_template('index.html',comments=comment)
+		return redirect(url_for('beijing'))
 	if user =='' or text =='':
 		comment=Comment.query.all()
-		return render_template('index.html',comments=comment)
+		return redirect(url_for('beijing'))
 	user=Comment(user=user)
 	user.text=text
 	db.session.add(user)
