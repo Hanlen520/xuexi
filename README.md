@@ -21,13 +21,13 @@
   -------------------------
   9.jque.py 是利用Python爬去w3school的JQuery的文章的。保存在本地的。
 -------------------------
-  10.flask_liuyanban利用flask 十分钟分钟开发一个留言板
+  10.flask_liuyanban利用flask 开发一个留言板
 -------------------------
-  11.bottle_liuyanban利用bottle 十分钟分钟开发一个留言板(中文乱码没有解决)
+  11.bottle_liuyanban利用bottle 开发一个留言板(中文乱码没有解决)
 -------------------------
-  12.tornado_liuyanban利用tornado 十分钟分钟开发一个留言板
+  12.tornado_liuyanban利用tornado 开发一个留言板
 -------------------------
-   13.django_liuyanban利用django 十分钟分钟开发一个留言板
+   13.django_liuyanban利用django 分钟开发一个留言板
 -------------------------
  继续写脚本，加油学习
 =======
