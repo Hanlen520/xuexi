@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>留言板</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+<h1 style="background-color: #58B;">留言簿</h1>
+<p >尽情留言</p>
+<form role="beijing" method="POST" action="" style="background-color:#589" >
+	<p>用户名：<input type="text" name="user"></p>
+	内容:<textarea rows="10" cols="30" name="text">
+ </textarea></p>
+	<input type="submit" name="" value="提交">
+</form>
+    <h2>留言历史信息</h2>
+    {%for comment in comments%}
+    <div><p>作者：{{comment[2]}} <span>留言于({{comment[1]}})</span></p>
+    <p style="background-color:#999">{{comment[3]}}</p></div>
+    {%end%}
+</body>
+</html>
