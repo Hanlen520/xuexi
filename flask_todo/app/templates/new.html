@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>totdolist</title>
+    <link href="../static/css/bootstrap.css"  rel="stylesheet">
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</head>
+<body style="    background-color: beige;">
+<h1 style="background-color: #1b6d85;margin: inherit">简易的事物处理系统
+<div class="dropdown " style="float: right">
+	<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+			data-toggle="dropdown">
+		{{session.username}}
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="width: 15px">
+		<li role="presentation"  >
+			<a role="menuitem" tabindex="-1" href="#" style="width: 20px">退出</a>
+		</li>
+	</ul>
+</div>
+    </h1>
+
+<h3 style="text-align: center;">新的事件</h3>
+ <form role='reg' method="POST" action="{{url_for('new')}}"
+ style="text-align: center;">
+ {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <p class=flashes>
+    {% for message in messages %}
+      <p style="color:#F00">{{ message }}</p>
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endwith %}
+    {{ form.hidden_tag() }}
+    <div >
+      {{ form.title.label }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      {% if form.title.errors %}
+        {% for e in form.title.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.title}}
+    </div>
+    <div >
+      {{ form.text.label }}
+      {% if form.text.errors %}
+        {% for e in form.text.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.text }}
+    </div>
+    <label class="radio"><strong>分类</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+  <input type="radio" name="optionsRadios" id="optionsRadios1" value="重要紧急" >重要紧急&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="optionsRadios" id="optionsRadios1" value="重要不紧急" >重要不紧急&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="optionsRadios" id="optionsRadios1" value="紧急不重要" >不重要紧急&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="radio" name="optionsRadios" id="optionsRadios1" value="不重要不紧急" >不重要不紧急&nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+    <div >
+      <strong>开始时间：</strong><input type="date" name="starttime"   value=""
+   >
+    </div>
+    <div >
+      <strong>结束时间：</strong><input type="date" name="endtime"    value=""
+      >
+    </div>
+    <input class="btn btn-primary" type="submit" value="添加">
+    </form>
+
+    </body>
+    </html>

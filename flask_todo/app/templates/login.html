@@ -1,0 +1,50 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="../static/css/bootstrap.css"  rel="stylesheet">
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body style="    background-color: beige;">
+<h1 style="background-color: #1b6d85;margin: inherit ;text-align:center">简易的事物处理系统
+</h1>
+<div style="text-align: center;">
+    <h3>登录</h3>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <p class=flashes>
+    {% for message in messages %}
+      <p style="color:#F00">{{ message }}</p>
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endwith %}
+<form role='login' method="POST" action="{{url_for('login')}}">
+    {{ form.hidden_tag() }}
+    <div style="text-align: center;">
+      {{ form.username.label }}
+      {% if form.username.errors %}
+        {% for e in form.username.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.username }}
+    </div>
+    <div style="text-align: center;">
+      {{ form.password.label }}
+      {% if form.password.errors %}
+        {% for e in form.password.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.password}}
+    </div>
+    <input class="btn btn-primary" type="submit" value="登录">
+    <span><a href="{{url_for('reg')}}">注册</a></span>
+    </form>
+</div>
+</div>
+</body>
+</html>

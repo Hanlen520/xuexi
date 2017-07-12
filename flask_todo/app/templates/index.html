@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>totdolist</title>
+    <link href="../static/css/bootstrap.css"  rel="stylesheet">
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</head>
+<body style="    background-color: beige;">
+<h1 style="background-color: #1b6d85;margin: inherit">简易的事物处理系统
+<div class="dropdown " style="float: right">
+	<button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+			data-toggle="dropdown">
+		{{session.username}}
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="width: 15px">
+		<li role="presentation"  >
+			<a role="menuitem" tabindex="-1" href="#" style="width: 20px">退出</a>
+		</li>
+	</ul>
+</div>
+    </h1>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <p class=flashes>
+    {% for message in messages %}
+      <p style="color:#F00">{{ message }}</p>
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endwith %}
+<div class="container " style="    margin-top: 78px;">
+    <div class="row">
+    <div class="col-xs-6">
+    <span class="label label-danger">重要紧急</span>
+    <span class="glyphicon glyphicon-plus" style="float:right"><strong><a href="{{url_for('new')}}">添加</a></strong></span>
+        <table class="table">
+        <tbody>
+        <tr>
+          <th>标题</th>
+          <th>内容</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+        </tr>
+        {%for zhong in zhongyao%}
+      <tr>
+         <td>{{zhong.title}}</td>
+         <td>{{zhong.text}}</td>
+          <td>{{zhong.starttime}}</td>
+          <td>{{zhong.endtime}}</td>
+      </tr>
+      {%endfor%}
+   </tbody>
+</table>
+    </div>
+    <div class="col-xs-6 ">
+        <span class="label label-warning">很重要不紧急</span>
+        <span class="glyphicon glyphicon-plus" style="float:right"><strong><a href="{{url_for('new')}}">添加</a></strong></span>
+        <table class="table">
+        <tbody>
+        <tr>
+          <th>标题</th>
+          <th>内容</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+        </tr>
+      {%for zhong in zhongyaofei%}
+      <tr>
+         <td>{{zhong.title}}</td>
+         <td>{{zhong.text}}</td>
+          <td>{{zhong.starttime}}</td>
+          <td>{{zhong.endtime}}</td>
+      </tr>
+      {%endfor%}
+   </tbody>
+</table>
+    </div>
+        </div>
+</div>
+<div class="container ">
+    <div class="row">
+    <div class="col-xs-6">
+<span class="label label-primary">不重要很紧急</span>
+<span class="glyphicon glyphicon-plus" style="float:right"><strong><a href="{{url_for('new')}}">添加</a></strong></span>
+        <table class="table">
+        <tbody>
+        <tr>
+          <th>标题</th>
+          <th>内容</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+        </tr>
+     {%for zhong in buzhongyao%}
+      <tr>
+         <td>{{zhong.title}}</td>
+         <td>{{zhong.text}}</td>
+          <td>{{zhong.starttime}}</td>
+          <td>{{zhong.endtime}}</td>
+      </tr>
+      {%endfor%}
+   </tbody>
+</table>
+
+    </div>
+    <div class="col-xs-6 ">
+<span class="label label-default">不重要不紧急</span>
+<span class="glyphicon glyphicon-plus" style="float:right"><strong><a href="{{url_for('new')}}">添加</a></strong></span>
+        <table class="table">
+        <tbody>
+        <tr>
+          <th>标题</th>
+          <th>内容</th>
+          <th>开始时间</th>
+          <th>结束时间</th>
+        </tr>
+      {%for zhong in bzhong%}
+      <tr>
+         <td>{{zhong.title}}</td>
+         <td>{{zhong.text}}</td>
+          <td>{{zhong.starttime}}</td>
+          <td>{{zhong.endtime}}</td>
+      </tr>
+      {%endfor%}
+   </tbody>
+</table>
+    </div>
+        </div>
+</div>
+
+
+</body>
+
+</html>

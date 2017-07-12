@@ -1,0 +1,67 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link href="../static/css/bootstrap.css"  rel="stylesheet">
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: beige;">
+<h1 style="background-color: #1b6d85;margin: inherit ;text-align:center">简易的事物处理系统
+</h1>
+<div style="text-align: center;margin-top：150px" id="regust" >
+    <h3>注册</h3>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <p class=flashes>
+    {% for message in messages %}
+      <p style="color:#F00">{{ message }}</p>
+    {% endfor %}
+    </p>
+  {% endif %}
+{% endwith %}
+    <form role='reg' method="POST" action="{{url_for('reg')}}">
+       {{ form.hidden_tag() }}
+    <div >
+      {{ form.username.label }}
+      {% if form.username.errors %}
+        {% for e in form.username.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.username(class_="form-control") }}
+    </div>
+    <div class="form-group" >
+      {{ form.password.label }}
+      {% if form.password.errors %}
+        {% for e in form.password.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.password(class_='form-control') }}
+    </div>
+    <div class="form-group" >
+      {{ form.queren_pass.label }}
+      {% if form.queren_pass.errors %}
+        {% for e in form.queren_pass.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.queren_pass(class_='form-control') }}
+    </div>
+    <div class="form-group" >
+      {{ form.email.label }}
+      {% if form.email.errors %}
+        {% for e in form.email.errors %}
+          <p class="help-block">{{ e }}</p>
+        {% endfor %}
+      {% endif %}
+      {{ form.email(class_='form-control') }}
+    </div>
+    <input class="btn btn-primary" type="submit" value="注册">
+</form>
+</div>
+</div>
+</body>
+</html>
