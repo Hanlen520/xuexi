@@ -40,3 +40,10 @@ import codecs
 fw=codecs.open('beijing.txt','a+','utf-8')
 fw.write('dddd')
 	'''
+from enum import Enum
+Month=Enum('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'))
+for name ,member in Month.__members__.items():
+	if 'Mar'== name:
+		print('在')
+	else:
+		print('不在')

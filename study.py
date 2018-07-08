@@ -21,9 +21,6 @@ weakref
 pprint
 reprlib
 enum
-numbers
-math
-cmath
 decimal
 fractions
 random
