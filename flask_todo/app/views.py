@@ -7,6 +7,14 @@ from app import app,db
 from app.models import User,Tag,Event
 from app.froms import regs,logi,new_event
 import datetime,time
+from flask_mail import Mail,Message
+from celery import  Celery
+mail=Mail(app)
+celery = Celery(app.name)
+@celery.task
+def send_async_email(msg):
+    with app.app_context():
+        mail.send(msg)
 @app.route('/',methods=['GET','POST'])
 def index():
 	if not session.get('username'):
@@ -49,7 +57,8 @@ def reg():
 		password=form.password.data
 		querenpassword=form.queren_pass.data
 		email=form.email.data
-		print(username,password)
+		msg=Message(subject='您已经成功注册！',recipients=['15964636199@139.com'])
+		msg.body = u'您已经成功注册todolist！可以登录使用您的账号'
 		if password !=querenpassword:
 			flash('请确认两次密码是否一致')
 			return render_template('reg.html',form=form)
@@ -67,7 +76,6 @@ def reg():
 			db.session.commit()
 			return redirect('login')
 	return render_template('reg.html',form=form)
-
 @app.route('/new',methods=['GET','POST'])
 def new():
 	if not session.get('username'):
