@@ -23,7 +23,6 @@ reprlib
 enum
 decimal
 fractions
-random
 statistics
 itertools
 functools
@@ -91,7 +90,6 @@ binascii
 quopri
 uu
 html
-xml
 webbrowser
 cgi
 cgitb
@@ -158,7 +156,6 @@ parser
 ast
 symtable
 symbol
-token
 keyword
 tokenize
 tabnanny

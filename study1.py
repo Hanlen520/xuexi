@@ -40,10 +40,32 @@ import codecs
 fw=codecs.open('beijing.txt','a+','utf-8')
 fw.write('dddd')
 	'''
-from enum import Enum
-Month=Enum('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'))
-for name ,member in Month.__members__.items():
-	if 'Mar'== name:
-		print('在')
-	else:
-		print('不在')
+# from enum import Enum  #枚举
+# Month=Enum('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'))
+# for name ,member in Month.__members__.items():
+# 	if 'Mar'== name:
+# 		print('在')
+# 	else:
+# 		print('不在')
+# import random
+# print(random.random())#0到1的随机符点数
+# print(random.uniform(10,20))#用于生成一个指定范围内的随机符点数
+# print(random.randint(10,20))#随机生成一个整数
+# print(random.choices(['beijing','shanghai']))#随机选择一个
+# lis=['python','beijing','java']
+# random.shuffle(lis)
+# print(lis)#打乱
+# import configparser
+# cf=configparser.ConfigParser()
+# cf.read('config.ini')
+# secs=cf.sections()
+# print(secs)
+# print(cf.options('db'))
+# print(cf.items('db'))
+# print(cf.get('db','db_user'))
+# import xml.etree.ElementTree as ET
+# tree=ET.parse('sample.xml')
+# root=tree.getroot()
+# for country in root.findall('country'): 
+# 	year = country.find('year')
+# 	print(year.text)
