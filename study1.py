@@ -69,3 +69,17 @@ fw.write('dddd')
 # for country in root.findall('country'): 
 # 	year = country.find('year')
 # 	print(year.text)
+# import  bisect
+# data=[4,8,7,1]
+# data.sort()
+# # bisect.insort(data,3)
+# # bisect.insort(data,5)
+# (bisect.insort_right(data,2))
+# (bisect.insort_left(data,2))
+# print(data)
+# from decimal import  *
+# print(Decimal('50.5679').quantize(Decimal('0.00')))
+# import statistics
+# data=[1,2,3]
+# print(statistics.mean(data))#平均值
+# print(statistics.mode([1,2,2,3,3,3,5]))#出现次数最多
